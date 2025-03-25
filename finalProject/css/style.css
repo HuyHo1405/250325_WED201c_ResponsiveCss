@@ -1,0 +1,106 @@
+/* Default mobile-first styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #dedede;
+    padding: 5px;
+    margin: 15px;
+    font-size: 25px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.95em;
+}
+
+h2 {
+    text-align: center;
+}
+
+li {
+    margin-top: 20px;
+}
+
+img {
+    border: 5px solid blue;
+    border-radius: 35px;
+    width: 100%;
+}
+
+.label {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile: 1 cột */
+    gap: 10px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px;
+}
+
+figure {
+    text-align: center;
+}
+
+figcaption {
+    font-size: 1.2em;
+    margin-top: 5px;
+}
+
+/* Tablet view (>= 772px) */
+@media (min-width: 772px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cột */
+    }
+
+    figure img {
+        border-radius: 50%; /* Làm tròn hình ảnh */
+    }
+
+    figure:last-child {
+        grid-column: span 2; /* Hình cuối cùng chiếm 2 cột */
+    }
+}
+
+/* Large screen view (>= 992px) */
+@media (min-width: 992px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 cột */
+    }
+
+    figure img {
+        border-radius: 0; /* Bỏ viền tròn */
+    }
+
+    figure:nth-child(3n) {
+        grid-column: span 2; /* Mỗi hình thứ 3 chiếm 2 cột */
+    }
+}
+
+/* Prefers reduced motion: tắt hiệu ứng cuộn */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #222;
+        color: #f8f8f8;
+    }
+
+    .grid figure {
+        background-color: #444;
+        color: #ffeb3b;
+        border: 2px solid black;
+        padding: 10px;
+    }
+}
